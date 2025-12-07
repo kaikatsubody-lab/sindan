@@ -1,631 +1,612 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Sans'}
-    span.s1 {font: 12.0px 'Hiragino Sans'}
-    span.s2 {font: 12.0px Helvetica}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現実創造の才能発掘診断</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                        'spin-slow': 'spin 3s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .fade-enter-active, .fade-leave-active { transition: opacity 0.5s; }
+        .fade-enter, .fade-leave-to { opacity: 0; }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ja"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;<span class="s1">現実創造の才能発掘診断</span>&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Alpine.js --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Lucide Icons --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/lucide@latest"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>tailwind.config = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>theme: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>extend: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>fontFamily: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>sans: ['"Noto Sans JP"', 'sans-serif'],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>animation: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>blob: "blob 7s infinite",</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>'spin-slow': 'spin 3s linear infinite',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>keyframes: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>blob: {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>"0%": { transform: "translate(0px, 0px) scale(1)" },</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>"33%": { transform: "translate(30px, -50px) scale(1.1)" },</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>"66%": { transform: "translate(-20px, 20px) scale(0.9)" },</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>"100%": { transform: "translate(0px, 0px) scale(1)" },</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>[x-cloak] { display: none !important; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Noto Sans JP', sans-serif; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.fade-enter-active, .fade-leave-active { transition: opacity 0.5s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.fade-enter, .fade-leave-to { opacity: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="bg-slate-50 text-slate-800 selection:bg-purple-100 selection:text-purple-900 min-h-screen"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Main App Container --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div x-data="diagnosisApp()" x-init="initApp()" class="max-w-3xl mx-auto min-h-screen shadow-xl bg-white overflow-hidden relative"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- <span class="s1">背景装飾</span> --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 opacity-60 z-0 rounded-b-[4rem]"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute top-20 -right-20 w-64 h-64 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute top-40 -left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;main class="relative z-10 px-6 py-12 md:px-12"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Header --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;header class="flex justify-between items-center mb-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center space-x-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i data-lucide="sparkles" class="text-purple-500 w-6 h-6"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="font-bold text-lg tracking-wider text-slate-700"&gt;TALENT DISCOVERY&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button x-show="step !== 'intro'" @click="resetApp()" x-cloak class="text-sm text-slate-400 hover:text-slate-600 transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span><span class="s1">最初に戻る</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Screens --&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 1. Intro Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div x-show="step === 'intro'" x-transition:enter="transition ease-out duration-700" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="flex flex-col items-center text-center space-y-8 py-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="inline-block px-4 py-1.5 rounded-full bg-white border border-purple-100 shadow-sm text-purple-600 text-xs font-bold tracking-widest mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>NEW DIAGNOSIS</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 leading-tight mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span><span class="s1">現実創造の才能、</span>&lt;br /&gt;<span class="s1">発掘診断！</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/h1&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-slate-600 leading-relaxed max-w-md mx-auto"&gt;</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span></span>あなたの中に眠っている「願いを叶える力」はどんな形をしているでしょうか？</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;br /&gt;&lt;br /&gt;</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span></span>この診断では、あなたの思考や行動パターンから</p>
-<p class="p1"><span class="Apple-converted-space">                    </span><span class="s1">あなただけの</span>&lt;span class="font-bold text-purple-600"&gt;<span class="s1">「現実創造の才能」</span>&lt;/span&gt;<span class="s1">を発掘します。</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-full max-w-sm pt-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button @click="startTest()" class="group relative w-full py-4 px-6 bg-slate-900 text-white rounded-2xl font-bold shadow-xl shadow-purple-200 hover:shadow-2xl hover:shadow-purple-300 hover:-translate-y-1 transition-all duration-300 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="relative z-10 flex items-center justify-center space-x-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;<span class="s1">才能を発掘しにいく</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mt-4 text-xs text-slate-400"&gt;<span class="s1">所要時間：約</span>2<span class="s1">分</span> / <span class="s1">全</span>35<span class="s1">問</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 2. Test Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div x-show="step === 'test'" x-cloak class="space-y-8"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Progress Bar --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"</p>
-<p class="p1"><span class="Apple-converted-space">                         </span>:style="`width: ${((activeTab) / questionsData.length) * 100}%`"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-xl font-bold text-slate-800"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Step &lt;span x-text="activeTab + 1"&gt;&lt;/span&gt; &lt;span class="text-slate-400 font-normal"&gt;/ &lt;span x-text="questionsData.length"&gt;&lt;/span&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-500 text-sm mt-2"&gt;<span class="s1">当てはまる項目にチェックを入れてください</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Questions Card --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="min-h-[400px]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;template x-for="(category, catIndex) in questionsData" :key="category.type"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div x-show="activeTab === catIndex" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-x-4" x-transition:enter-end="opacity-100 translate-x-0" class="space-y-6"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-lg relative overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div :class="`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${category.color}`"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                                </span></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center space-x-3 mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div :class="`p-2 rounded-lg bg-gradient-to-br ${category.color} text-white shadow-md flex items-center justify-center`"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;!-- Icon rendering helper --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;i :data-lucide="category.iconName" class="w-6 h-6"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="font-bold text-slate-700"&gt;<span class="s1">あなたの傾向チェック</span> - &lt;span x-text="category.type"&gt;&lt;/span&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;template x-for="(q, idx) in category.questions" :key="idx"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;label class="flex items-start space-x-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 group"</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>:class="answers[`${category.type}-${idx}`] ? 'border-purple-400 bg-purple-50 shadow-inner' : 'border-slate-100 hover:border-purple-200 hover:bg-slate-50'"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200"</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>:class="answers[`${category.type}-${idx}`] ? 'bg-purple-500 border-purple-500' : 'border-slate-300 group-hover:border-purple-300'"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;i x-show="answers[`${category.type}-${idx}`]" data-lucide="check" class="w-4 h-4 text-white"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;input type="checkbox" class="hidden"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>@change="toggleAnswer(`${category.type}-${idx}`)"</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>:checked="answers[`${category.type}-${idx}`]"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;span class="text-sm md:text-base select-none transition-colors"</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>:class="answers[`${category.type}-${idx}`] ? 'text-purple-900 font-medium' : 'text-slate-600'"</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>x-text="q"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/template&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/template&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Navigation --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-center pt-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button @click="nextSection()" class="px-10 py-4 bg-slate-900 text-white rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center space-x-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span x-text="activeTab &lt; questionsData.length - 1 ? '<span class="s1">次のステップへ</span>' : '<span class="s1">診断結果を見る</span>'"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i data-lucide="arrow-right" class="w-5 h-5"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div x-show="activeTab &gt; 0" class="text-center mt-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button @click="prevSection()" class="text-slate-400 text-sm hover:text-slate-600 underline"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span><span class="s1">戻る</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 3. Analyzing Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div x-show="step === 'analyzing'" x-cloak class="flex flex-col items-center justify-center py-20 space-y-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="relative w-32 h-32"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="absolute inset-0 border-4 border-slate-100 rounded-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="absolute inset-0 border-4 border-purple-500 rounded-full border-t-transparent animate-spin"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i data-lucide="sparkles" class="absolute inset-0 m-auto text-yellow-400 w-12 h-12 animate-pulse"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold text-slate-800"&gt;<span class="s1">才能を分析中</span>...&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-500"&gt;<span class="s1">あなたの回答から思考パターンを紐解いています</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 4. Result Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div x-show="step === 'result' &amp;&amp; result" x-cloak class="space-y-12 pb-12"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="animate-fade-in-up"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm font-bold tracking-widest text-slate-400 uppercase"&gt;Your Hidden Talent&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-2xl font-bold text-slate-800"&gt;<span class="s1">発掘された才能は</span>...&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Main Results --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;template x-for="(typeCode, index) in result?.mainTypes" :key="typeCode"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden bg-white rounded-3xl shadow-xl border-2"</p>
-<p class="p1"><span class="Apple-converted-space">                         </span>:class="resultsData[typeCode].border"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Decoration --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-r opacity-20"</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>:class="questionsData.find(q =&gt; q.type === typeCode).color"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative p-8 text-center pt-12"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Icon --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg mb-6 text-slate-700"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i :data-lucide="questionsData.find(q =&gt; q.type === typeCode).iconName" class="w-10 h-10"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="space-y-2 mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-500 mb-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>TYPE &lt;span x-text="typeCode"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-2xl md:text-3xl font-extrabold" :class="resultsData[typeCode].color" x-text="resultsData[typeCode].title"&gt;&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-lg font-bold text-slate-700 mt-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span><span class="s1">「</span>&lt;span x-text="resultsData[typeCode].subtitle"&gt;&lt;/span&gt;<span class="s1">」</span></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-left bg-slate-50/80 p-6 rounded-2xl mb-8 leading-relaxed text-slate-700" x-text="resultsData[typeCode].description"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="flex items-center space-x-2 font-bold text-slate-800 mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;i data-lucide="sparkles" class="w-5 h-5 text-yellow-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;<span class="s1">才能の活かし方</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;ul class="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;template x-for="(item, i) in resultsData[typeCode].advice" :key="i"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;li class="flex items-start space-x-3 text-sm md:text-base text-slate-600 bg-white p-3 rounded-lg border border-slate-100 shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;i data-lucide="check" class="w-5 h-5 flex-shrink-0 mt-0.5" :class="resultsData[typeCode].color"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;span x-text="item"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/template&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Copy Button --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mt-8 flex justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button @click="copyResult(typeCode)" class="flex items-center space-x-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-sm font-bold transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;i :data-lucide="copied ? 'check-circle' : 'copy'" class="w-4 h-4" :class="copied ? 'text-green-500' : ''"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span x-text="copied ? '<span class="s1">コピーしました！</span>' : '<span class="s1">結果をコピーしてシェア</span>'"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/template&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Sub Results --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div x-show="result?.subTypes.length &gt; 0" class="space-y-6 pt-8 border-t border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-lg font-bold text-slate-700 flex items-center justify-center space-x-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i data-lucide="star" class="w-5 h-5 text-yellow-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;<span class="s1">さらに！複合的に持っている才能</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-slate-500 mt-2"&gt;</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                            </span></span>これらの要素も強く持っています。組み合わせることで最強に！</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;template x-for="typeCode in result?.subTypes" :key="typeCode"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-white p-5 rounded-2xl border shadow-sm hover:shadow-md transition-shadow" :class="resultsData[typeCode].border"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center space-x-3 mb-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="p-2 rounded-lg bg-slate-100" :class="resultsData[typeCode].color"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;i :data-lucide="questionsData.find(q =&gt; q.type === typeCode).iconName" class="w-6 h-6"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span class="text-xs font-bold text-slate-400 block"&gt;TYPE &lt;span x-text="typeCode"&gt;&lt;/span&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;h4 class="font-bold" :class="resultsData[typeCode].color" x-text="resultsData[typeCode].title"&gt;&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-slate-600 leading-relaxed mb-3" x-text="resultsData[typeCode].subtitle"&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="text-xs bg-slate-50 p-2 rounded text-slate-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>Point: &lt;span x-text="resultsData[typeCode].advice[0]"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/template&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Footer Action --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="pt-8 text-center space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 bg-slate-900 text-white rounded-2xl shadow-xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="font-bold text-lg mb-2"&gt;<span class="s1">どのタイプも素晴らしい「才能」です</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-slate-300 text-sm mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span><span class="s1">欠点じゃなく、磨けば光る原石。</span>&lt;br /&gt;</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                            </span></span>この診断をきっかけに、自分の才能を活かした現実創造を楽しんでくださいね！</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button @click="resetApp()" class="px-6 py-3 bg-white text-slate-900 rounded-full font-bold text-sm hover:bg-slate-100 transition-colors flex items-center justify-center space-x-2 mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i data-lucide="rotate-ccw" class="w-4 h-4"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;<span class="s1">もう一度診断する</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="text-center py-6 text-slate-400 text-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;© Reality Creation Talent Diagnosis&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const questionsData = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'A',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">無限の可能性キャンバス型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'palette',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-pink-400 to-rose-400',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「何が欲しいの？」と聞かれて「うーん</span>...<span class="s1">」と悩む</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「とりあえず幸せになりたい」みたいな、ふわっとした願いが多い<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>目標を立てても「でも、どうなりたいかわからない」と迷子になる<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">手帳に書く目標が毎回変わる、定まらない</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「何でもできる！」と思うけど、結局何も決められない<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'B',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">イメージ力無限大型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'star',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-violet-400 to-purple-400',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">頭の中では完璧な未来が描けてる、映画みたいに</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「叶ったらこうなる」妄想タイムが至福の時間</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>寝る前のイメージングが日課、リアルすぎて現実と混ざる<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">ノートに理想の生活を書き出すのは得意、でも行動は</span>...?',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">ビジョンボード作成にハマったことがある</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'C',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">情熱の炎メラメラ型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'zap',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-orange-400 to-red-400',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「絶対叶える！」と決めたら周りが見えなくなる</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">願いのことを四六時中考えてる、もはや執着レベル</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「いつ叶うの？」「なんで叶わないの？」と焦りまくり<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">引き寄せの本を読みすぎて、情報過多で混乱中</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「手放す」って言われても「手放したら叶わないじゃん！」と思う<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'D',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">地に足ついた現実派型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'anchor',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-emerald-400 to-teal-400',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「でも現実的に考えて</span>...<span class="s1">」が口癖</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「引き寄せなんて科学的根拠あるの？」とつい調べる<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">成功例を見ても「特別な人だからでしょ」と思う</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>願いを書き出しても「無理でしょ」とツッコミを入れる自分がいる<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>ワクワクより「ちゃんと計画立てなきゃ」が先に来る<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'E',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">奥ゆかしい大和撫子型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'heart',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-rose-300 to-pink-300',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">チャンスが来ても「私なんかに</span>...<span class="s1">」と遠慮する</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">誘われても「迷惑じゃないかな」と断ってしまう</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>褒められても「いやいや、そんなことないです」と全力否定<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>良いことがあっても「こんなの受け取っていいのかな」と不安<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「私には早すぎる」「まだその段階じゃない」が口癖<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'F',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">先読み天才アンテナ型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'shield',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-blue-400 to-cyan-400',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「でも失敗したらどうしよう」が真っ先に浮かぶ</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>最悪のシナリオを想像する天才、リスク管理はバッチリ<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「うまくいくはずない」という確信がある</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>ポジティブになろうとすると「現実逃避だ」と自分を責める<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">他人の成功を素直に喜べない、自分と比べてしまう</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'G',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">行動力爆発スタートダッシュ型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>iconName: 'rocket',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'from-amber-400 to-yellow-400',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questions: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">願ったら即行動！待つのは苦手</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「タイミングを待つ」って言われても「今でしょ！」と思う<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">結果がすぐ出ないとイライラする、我慢できない</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「流れに任せる」より「自分で掴みに行く」派</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>焦って行動して、後から「あれ、違ったかも」と気づく<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const resultsData = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>A: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">無限の可能性キャンバス型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">選択肢が無限にあること！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>まだ何色にも染まっていない真っ白なキャンバス状態。これって実はすごいことなんです。多くの人は過去の経験や思い込みでガチガチになってますが、あなたは自由！<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「これじゃなきゃダメ」がないから、本当に心がワクワクすることを選べる<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>小さく具体的な願いから始めてみよう（例：「今週楽しいことが<span class="s2">1</span>つ起きる」）<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>可能性が無限だからこそ、<span class="s2">1</span>つずつ試してみる実験精神を持とう<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-pink-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-pink-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-pink-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>B: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">イメージ力無限大型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">未来を鮮明に描ける力！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>頭の中で映画を作れる才能、これは現実創造の第一歩として最強です。多くの人はイメージすらできないのに、あなたはもう持ってる！<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">そのイメージ力に、小さな行動を</span>1<span class="s1">つプラスするだけで</span>OK',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">例：理想の部屋をイメージ→まずクッション</span>1<span class="s1">つ買う</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「イメージ→行動→イメージ→行動」のサイクルを作ろう<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-violet-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-violet-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-violet-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>C: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">情熱の炎メラメラ型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">情熱とエネルギーの高さ！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>その熱量、マジで宇宙まで届いてます。多くの人は「まあ、叶ったらいいな」レベルなのに、あなたは本気。これは最強の武器です。<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>その情熱を「執着」じゃなく「楽しむエネルギー」に変換しよう<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「絶対叶える！」→「叶ったら超楽しい！」にシフト<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'1</span>日<span class="s2">1</span>回は完全に忘れる時間を作る（趣味、運動、お笑い動画など）<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-orange-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-orange-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-orange-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>D: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">地に足ついた現実派型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">現実を見る冷静さと計画力！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>ふわふわスピリチュアルじゃなく、地に足ついてるのが強み。夢だけ見て行動しない人より、あなたの方がよっぽど現実創造できます。<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「願い」を「計画」に落とし込むのが得意なはず</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>小さな成功体験を積み重ねて「あれ、意外といけるかも」を増やす<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">論理</span>×<span class="s1">直感のハイブリッド型を目指そう</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-emerald-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-emerald-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-emerald-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>E: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">奥ゆかしい大和撫子型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">謙虚さと感謝の心！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>受け取り上手になれたら最強です。実は宇宙はすでにチャンスを送ってるのに、あなたが「私には<span class="s2">...</span>」と断ってるだけかも。<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>小さな幸せを受け取る練習から（「ありがとう」と素直に言う）<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">「私には早い」→「私だからこそ今」にシフト</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>遠慮は美徳だけど、受け取らないのは宇宙への失礼と考えてみて<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-rose-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-rose-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-rose-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>F: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">先読み天才アンテナ型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">リスク察知能力とアンテナの鋭さ！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>不安や心配は、実は「先読み能力」の裏返し。その鋭いアンテナ、ちゃんと才能です。ネガティブじゃなくて、敏感なだけ。<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「悪いこと」を予測するアンテナを「良いこと」にも向けてみる<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>「失敗したら」→「成功したら」の未来も同じくらいリアルに想像する<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>その分析力で「どうすればうまくいくか」を考えよう<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-blue-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-blue-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-blue-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>G: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: '<span class="s1">行動力爆発スタートダッシュ型</span>',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>subtitle: '<span class="s1">即行動できる推進力！</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                </span>description: '</span>多くの人が「やりたいけど<span class="s2">...</span>」と悩んでる間に、あなたはもう動いてる。このスピード感、めちゃくちゃ貴重です。<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>advice: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'<span class="s1">行動力はそのままで</span>OK<span class="s1">、ただし「一呼吸」を入れてみる</span>',</p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>動く前に「これは本当に自分の願いに繋がってる？」と確認<span class="s2">',</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">                    </span>'</span>焦りじゃなく「ワクワク」で動いてるか、チェックしよう<span class="s2">',</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: 'text-amber-600',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>bg: 'bg-amber-50',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border: 'border-amber-200',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function diagnosisApp() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>step: 'intro',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>activeTab: 0,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>answers: {},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>result: null,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>questionsData: questionsData,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resultsData: resultsData,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>copied: false,</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>initApp() {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.$nextTick(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>if(typeof lucide !== 'undefined') {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>startTest() {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.step = 'test';</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>window.scrollTo({ top: 0, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.$nextTick(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>if(typeof lucide !== 'undefined') lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>toggleAnswer(id) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (this.answers[id]) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>delete this.answers[id];</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.answers[id] = false;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.answers[id] = true;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>nextSection() {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (this.activeTab &lt; this.questionsData.length - 1) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.activeTab++;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>window.scrollTo({ top: 100, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.$nextTick(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>if(typeof lucide !== 'undefined') lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.finishTest();</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>prevSection() {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.activeTab--;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>window.scrollTo({ top: 100, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.$nextTick(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                         </span>if(typeof lucide !== 'undefined') lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>finishTest() {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.step = 'analyzing';</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>window.scrollTo({ top: 0, behavior: 'smooth' });</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>// Logic calculation</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const scores = {};</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.questionsData.forEach(qData =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>let count = 0;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>qData.questions.forEach((_, idx) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>if (this.answers[`${qData.type}-${idx}`]) count++;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>scores[qData.type] = count;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>let maxScore = 0;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Object.values(scores).forEach(score =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>if (score &gt; maxScore) maxScore = score;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const mainTypes = Object.keys(scores).filter(type =&gt; scores[type] === maxScore &amp;&amp; maxScore &gt; 0);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const subTypes = Object.keys(scores).filter(type =&gt; scores[type] &gt;= 3 &amp;&amp; !mainTypes.includes(type));</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (mainTypes.length === 0) mainTypes.push('A');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.result = { mainTypes, subTypes };</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.step = 'result';</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.$nextTick(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>if(typeof lucide !== 'undefined') lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>window.scrollTo({ top: 0, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}, 2500);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>resetApp() {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.step = 'intro';</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.answers = {};</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.result = null;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>this.activeTab = 0;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>window.scrollTo({ top: 0, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>copyResult(typeCode) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const data = this.resultsData[typeCode];</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const text = `<span class="s1">私の現実創造の才能は</span>...<span class="s1">【</span>${data.title}<span class="s1">】でした！</span>\n\n${data.subtitle}\n\n#<span class="s1">現実創造才能診断</span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>navigator.clipboard.writeText(text).then(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.copied = true;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>setTimeout(() =&gt; this.copied = false, 2000);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>this.$nextTick(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>if(typeof lucide !== 'undefined') lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="bg-slate-50 text-slate-800 selection:bg-purple-100 selection:text-purple-900 min-h-screen">
+
+    <!-- Main App Container -->
+    <div x-data="diagnosisApp()" x-init="initApp()" class="max-w-3xl mx-auto min-h-screen shadow-xl bg-white overflow-hidden relative">
+        
+        <!-- 背景装飾 -->
+        <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 opacity-60 z-0 rounded-b-[4rem]"></div>
+        <div class="absolute top-20 -right-20 w-64 h-64 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-40 -left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+        <main class="relative z-10 px-6 py-12 md:px-12">
+            
+            <!-- Header -->
+            <header class="flex justify-between items-center mb-10">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="sparkles" class="text-purple-500 w-6 h-6"></i>
+                    <span class="font-bold text-lg tracking-wider text-slate-700">TALENT DISCOVERY</span>
+                </div>
+                <button x-show="step !== 'intro'" @click="resetApp()" x-cloak class="text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                    最初に戻る
+                </button>
+            </header>
+
+            <!-- Screens -->
+            
+            <!-- 1. Intro Screen -->
+            <div x-show="step === 'intro'" x-transition:enter="transition ease-out duration-700" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="flex flex-col items-center text-center space-y-8 py-10">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-white border border-purple-100 shadow-sm text-purple-600 text-xs font-bold tracking-widest mb-4">
+                    NEW DIAGNOSIS
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 leading-tight mb-4">
+                    現実創造の才能、<br />発掘診断！
+                </h1>
+
+                <p class="text-slate-600 leading-relaxed max-w-md mx-auto">
+                    あなたの中に眠っている「願いを叶える力」はどんな形をしているでしょうか？
+                    <br /><br />
+                    この診断では、あなたの思考や行動パターンから
+                    あなただけの<span class="font-bold text-purple-600">「現実創造の才能」</span>を発掘します。
+                </p>
+
+                <div class="w-full max-w-sm pt-8">
+                    <button @click="startTest()" class="group relative w-full py-4 px-6 bg-slate-900 text-white rounded-2xl font-bold shadow-xl shadow-purple-200 hover:shadow-2xl hover:shadow-purple-300 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 flex items-center justify-center space-x-2">
+                            <span>才能を発掘しにいく</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                    <p class="mt-4 text-xs text-slate-400">所要時間：約2分 / 全35問</p>
+                </div>
+            </div>
+
+            <!-- 2. Test Screen -->
+            <div x-show="step === 'test'" x-cloak class="space-y-8">
+                
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"
+                         :style="`width: ${((activeTab) / questionsData.length) * 100}%`"></div>
+                </div>
+
+                <div class="text-center mb-8">
+                    <h2 class="text-xl font-bold text-slate-800">
+                        Step <span x-text="activeTab + 1"></span> <span class="text-slate-400 font-normal">/ <span x-text="questionsData.length"></span></span>
+                    </h2>
+                    <p class="text-slate-500 text-sm mt-2">当てはまる項目にチェックを入れてください</p>
+                </div>
+
+                <!-- Questions Card -->
+                <div class="min-h-[400px]">
+                    <template x-for="(category, catIndex) in questionsData" :key="category.type">
+                        <div x-show="activeTab === catIndex" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-x-4" x-transition:enter-end="opacity-100 translate-x-0" class="space-y-6">
+                            
+                            <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-lg relative overflow-hidden">
+                                <div :class="`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${category.color}`"></div>
+                                
+                                <div class="flex items-center space-x-3 mb-6">
+                                    <div :class="`p-2 rounded-lg bg-gradient-to-br ${category.color} text-white shadow-md flex items-center justify-center`">
+                                        <!-- Icon rendering helper -->
+                                        <i :data-lucide="category.iconName" class="w-6 h-6"></i>
+                                    </div>
+                                    <span class="font-bold text-slate-700">あなたの傾向チェック - <span x-text="category.type"></span></span>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <template x-for="(q, idx) in category.questions" :key="idx">
+                                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 group"
+                                            :class="answers[`${category.type}-${idx}`] ? 'border-purple-400 bg-purple-50 shadow-inner' : 'border-slate-100 hover:border-purple-200 hover:bg-slate-50'">
+                                            
+                                            <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200"
+                                                :class="answers[`${category.type}-${idx}`] ? 'bg-purple-500 border-purple-500' : 'border-slate-300 group-hover:border-purple-300'">
+                                                <i x-show="answers[`${category.type}-${idx}`]" data-lucide="check" class="w-4 h-4 text-white"></i>
+                                            </div>
+                                            
+                                            <input type="checkbox" class="hidden" 
+                                                @change="toggleAnswer(`${category.type}-${idx}`)"
+                                                :checked="answers[`${category.type}-${idx}`]">
+                                            
+                                            <span class="text-sm md:text-base select-none transition-colors"
+                                                :class="answers[`${category.type}-${idx}`] ? 'text-purple-900 font-medium' : 'text-slate-600'"
+                                                x-text="q"></span>
+                                        </label>
+                                    </template>
+                                </div>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex justify-center pt-8">
+                    <button @click="nextSection()" class="px-10 py-4 bg-slate-900 text-white rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center space-x-2">
+                        <span x-text="activeTab < questionsData.length - 1 ? '次のステップへ' : '診断結果を見る'"></span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                
+                <div x-show="activeTab > 0" class="text-center mt-4">
+                    <button @click="prevSection()" class="text-slate-400 text-sm hover:text-slate-600 underline">
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. Analyzing Screen -->
+            <div x-show="step === 'analyzing'" x-cloak class="flex flex-col items-center justify-center py-20 space-y-8">
+                <div class="relative w-32 h-32">
+                    <div class="absolute inset-0 border-4 border-slate-100 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-purple-500 rounded-full border-t-transparent animate-spin"></div>
+                    <i data-lucide="sparkles" class="absolute inset-0 m-auto text-yellow-400 w-12 h-12 animate-pulse"></i>
+                </div>
+                <div class="text-center space-y-2">
+                    <h3 class="text-xl font-bold text-slate-800">才能を分析中...</h3>
+                    <p class="text-slate-500">あなたの回答から思考パターンを紐解いています</p>
+                </div>
+            </div>
+
+            <!-- 4. Result Screen -->
+            <div x-show="step === 'result' && result" x-cloak class="space-y-12 pb-12">
+                
+                <div class="text-center space-y-4">
+                    <div class="animate-fade-in-up">
+                        <p class="text-sm font-bold tracking-widest text-slate-400 uppercase">Your Hidden Talent</p>
+                        <h2 class="text-2xl font-bold text-slate-800">発掘された才能は...</h2>
+                    </div>
+                </div>
+
+                <!-- Main Results -->
+                <template x-for="(typeCode, index) in result?.mainTypes" :key="typeCode">
+                    <div class="relative overflow-hidden bg-white rounded-3xl shadow-xl border-2"
+                         :class="resultsData[typeCode].border">
+                        
+                        <!-- Decoration -->
+                        <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-r opacity-20"
+                             :class="questionsData.find(q => q.type === typeCode).color"></div>
+                        
+                        <div class="relative p-8 text-center pt-12">
+                            
+                            <!-- Icon -->
+                            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg mb-6 text-slate-700">
+                                <i :data-lucide="questionsData.find(q => q.type === typeCode).iconName" class="w-10 h-10"></i>
+                            </div>
+
+                            <div class="space-y-2 mb-8">
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-500 mb-2">
+                                    TYPE <span x-text="typeCode"></span>
+                                </span>
+                                <h3 class="text-2xl md:text-3xl font-extrabold" :class="resultsData[typeCode].color" x-text="resultsData[typeCode].title"></h3>
+                                <p class="text-lg font-bold text-slate-700 mt-2">
+                                    「<span x-text="resultsData[typeCode].subtitle"></span>」
+                                </p>
+                            </div>
+
+                            <div class="text-left bg-slate-50/80 p-6 rounded-2xl mb-8 leading-relaxed text-slate-700" x-text="resultsData[typeCode].description">
+                            </div>
+
+                            <div class="text-left">
+                                <h4 class="flex items-center space-x-2 font-bold text-slate-800 mb-4">
+                                    <i data-lucide="sparkles" class="w-5 h-5 text-yellow-500"></i>
+                                    <span>才能の活かし方</span>
+                                </h4>
+                                <ul class="space-y-3">
+                                    <template x-for="(item, i) in resultsData[typeCode].advice" :key="i">
+                                        <li class="flex items-start space-x-3 text-sm md:text-base text-slate-600 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                            <i data-lucide="check" class="w-5 h-5 flex-shrink-0 mt-0.5" :class="resultsData[typeCode].color"></i>
+                                            <span x-text="item"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                            
+                            <!-- Copy Button -->
+                            <div class="mt-8 flex justify-center">
+                                <button @click="copyResult(typeCode)" class="flex items-center space-x-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-sm font-bold transition-colors">
+                                    <i :data-lucide="copied ? 'check-circle' : 'copy'" class="w-4 h-4" :class="copied ? 'text-green-500' : ''"></i>
+                                    <span x-text="copied ? 'コピーしました！' : '結果をコピーしてシェア'"></span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Sub Results -->
+                <div x-show="result?.subTypes.length > 0" class="space-y-6 pt-8 border-t border-slate-100">
+                    <div class="text-center">
+                        <h3 class="text-lg font-bold text-slate-700 flex items-center justify-center space-x-2">
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-500"></i>
+                            <span>さらに！複合的に持っている才能</span>
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2">
+                            これらの要素も強く持っています。組み合わせることで最強に！
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <template x-for="typeCode in result?.subTypes" :key="typeCode">
+                            <div class="bg-white p-5 rounded-2xl border shadow-sm hover:shadow-md transition-shadow" :class="resultsData[typeCode].border">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="p-2 rounded-lg bg-slate-100" :class="resultsData[typeCode].color">
+                                        <i :data-lucide="questionsData.find(q => q.type === typeCode).iconName" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-400 block">TYPE <span x-text="typeCode"></span></span>
+                                        <h4 class="font-bold" :class="resultsData[typeCode].color" x-text="resultsData[typeCode].title"></h4>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-3" x-text="resultsData[typeCode].subtitle"></p>
+                                <div class="text-xs bg-slate-50 p-2 rounded text-slate-500">
+                                    Point: <span x-text="resultsData[typeCode].advice[0]"></span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Footer Action -->
+                <div class="pt-8 text-center space-y-4">
+                    <div class="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
+                        <p class="font-bold text-lg mb-2">どのタイプも素晴らしい「才能」です</p>
+                        <p class="text-slate-300 text-sm mb-6">
+                            欠点じゃなく、磨けば光る原石。<br />
+                            この診断をきっかけに、自分の才能を活かした現実創造を楽しんでくださいね！
+                        </p>
+                        <button @click="resetApp()" class="px-6 py-3 bg-white text-slate-900 rounded-full font-bold text-sm hover:bg-slate-100 transition-colors flex items-center justify-center space-x-2 mx-auto">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>もう一度診断する</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+        
+        <footer class="text-center py-6 text-slate-400 text-sm">
+            <p>© Reality Creation Talent Diagnosis</p>
+        </footer>
+    </div>
+
+    <script>
+        const questionsData = [
+            {
+                type: 'A',
+                title: '無限の可能性キャンバス型',
+                iconName: 'palette',
+                color: 'from-pink-400 to-rose-400',
+                questions: [
+                    '「何が欲しいの？」と聞かれて「うーん...」と悩む',
+                    '「とりあえず幸せになりたい」みたいな、ふわっとした願いが多い',
+                    '目標を立てても「でも、どうなりたいかわからない」と迷子になる',
+                    '手帳に書く目標が毎回変わる、定まらない',
+                    '「何でもできる！」と思うけど、結局何も決められない',
+                ]
+            },
+            {
+                type: 'B',
+                title: 'イメージ力無限大型',
+                iconName: 'star',
+                color: 'from-violet-400 to-purple-400',
+                questions: [
+                    '頭の中では完璧な未来が描けてる、映画みたいに',
+                    '「叶ったらこうなる」妄想タイムが至福の時間',
+                    '寝る前のイメージングが日課、リアルすぎて現実と混ざる',
+                    'ノートに理想の生活を書き出すのは得意、でも行動は...?',
+                    'ビジョンボード作成にハマったことがある',
+                ]
+            },
+            {
+                type: 'C',
+                title: '情熱の炎メラメラ型',
+                iconName: 'zap',
+                color: 'from-orange-400 to-red-400',
+                questions: [
+                    '「絶対叶える！」と決めたら周りが見えなくなる',
+                    '願いのことを四六時中考えてる、もはや執着レベル',
+                    '「いつ叶うの？」「なんで叶わないの？」と焦りまくり',
+                    '引き寄せの本を読みすぎて、情報過多で混乱中',
+                    '「手放す」って言われても「手放したら叶わないじゃん！」と思う',
+                ]
+            },
+            {
+                type: 'D',
+                title: '地に足ついた現実派型',
+                iconName: 'anchor',
+                color: 'from-emerald-400 to-teal-400',
+                questions: [
+                    '「でも現実的に考えて...」が口癖',
+                    '「引き寄せなんて科学的根拠あるの？」とつい調べる',
+                    '成功例を見ても「特別な人だからでしょ」と思う',
+                    '願いを書き出しても「無理でしょ」とツッコミを入れる自分がいる',
+                    'ワクワクより「ちゃんと計画立てなきゃ」が先に来る',
+                ]
+            },
+            {
+                type: 'E',
+                title: '奥ゆかしい大和撫子型',
+                iconName: 'heart',
+                color: 'from-rose-300 to-pink-300',
+                questions: [
+                    'チャンスが来ても「私なんかに...」と遠慮する',
+                    '誘われても「迷惑じゃないかな」と断ってしまう',
+                    '褒められても「いやいや、そんなことないです」と全力否定',
+                    '良いことがあっても「こんなの受け取っていいのかな」と不安',
+                    '「私には早すぎる」「まだその段階じゃない」が口癖',
+                ]
+            },
+            {
+                type: 'F',
+                title: '先読み天才アンテナ型',
+                iconName: 'shield',
+                color: 'from-blue-400 to-cyan-400',
+                questions: [
+                    '「でも失敗したらどうしよう」が真っ先に浮かぶ',
+                    '最悪のシナリオを想像する天才、リスク管理はバッチリ',
+                    '「うまくいくはずない」という確信がある',
+                    'ポジティブになろうとすると「現実逃避だ」と自分を責める',
+                    '他人の成功を素直に喜べない、自分と比べてしまう',
+                ]
+            },
+            {
+                type: 'G',
+                title: '行動力爆発スタートダッシュ型',
+                iconName: 'rocket',
+                color: 'from-amber-400 to-yellow-400',
+                questions: [
+                    '願ったら即行動！待つのは苦手',
+                    '「タイミングを待つ」って言われても「今でしょ！」と思う',
+                    '結果がすぐ出ないとイライラする、我慢できない',
+                    '「流れに任せる」より「自分で掴みに行く」派',
+                    '焦って行動して、後から「あれ、違ったかも」と気づく',
+                ]
+            },
+        ];
+
+        const resultsData = {
+            A: {
+                title: '無限の可能性キャンバス型',
+                subtitle: '選択肢が無限にあること！',
+                description: 'まだ何色にも染まっていない真っ白なキャンバス状態。これって実はすごいことなんです。多くの人は過去の経験や思い込みでガチガチになってますが、あなたは自由！',
+                advice: [
+                    '「これじゃなきゃダメ」がないから、本当に心がワクワクすることを選べる',
+                    '小さく具体的な願いから始めてみよう（例：「今週楽しいことが1つ起きる」）',
+                    '可能性が無限だからこそ、1つずつ試してみる実験精神を持とう',
+                ],
+                color: 'text-pink-600',
+                bg: 'bg-pink-50',
+                border: 'border-pink-200',
+            },
+            B: {
+                title: 'イメージ力無限大型',
+                subtitle: '未来を鮮明に描ける力！',
+                description: '頭の中で映画を作れる才能、これは現実創造の第一歩として最強です。多くの人はイメージすらできないのに、あなたはもう持ってる！',
+                advice: [
+                    'そのイメージ力に、小さな行動を1つプラスするだけでOK',
+                    '例：理想の部屋をイメージ→まずクッション1つ買う',
+                    '「イメージ→行動→イメージ→行動」のサイクルを作ろう',
+                ],
+                color: 'text-violet-600',
+                bg: 'bg-violet-50',
+                border: 'border-violet-200',
+            },
+            C: {
+                title: '情熱の炎メラメラ型',
+                subtitle: '情熱とエネルギーの高さ！',
+                description: 'その熱量、マジで宇宙まで届いてます。多くの人は「まあ、叶ったらいいな」レベルなのに、あなたは本気。これは最強の武器です。',
+                advice: [
+                    'その情熱を「執着」じゃなく「楽しむエネルギー」に変換しよう',
+                    '「絶対叶える！」→「叶ったら超楽しい！」にシフト',
+                    '1日1回は完全に忘れる時間を作る（趣味、運動、お笑い動画など）',
+                ],
+                color: 'text-orange-600',
+                bg: 'bg-orange-50',
+                border: 'border-orange-200',
+            },
+            D: {
+                title: '地に足ついた現実派型',
+                subtitle: '現実を見る冷静さと計画力！',
+                description: 'ふわふわスピリチュアルじゃなく、地に足ついてるのが強み。夢だけ見て行動しない人より、あなたの方がよっぽど現実創造できます。',
+                advice: [
+                    '「願い」を「計画」に落とし込むのが得意なはず',
+                    '小さな成功体験を積み重ねて「あれ、意外といけるかも」を増やす',
+                    '論理×直感のハイブリッド型を目指そう',
+                ],
+                color: 'text-emerald-600',
+                bg: 'bg-emerald-50',
+                border: 'border-emerald-200',
+            },
+            E: {
+                title: '奥ゆかしい大和撫子型',
+                subtitle: '謙虚さと感謝の心！',
+                description: '受け取り上手になれたら最強です。実は宇宙はすでにチャンスを送ってるのに、あなたが「私には...」と断ってるだけかも。',
+                advice: [
+                    '小さな幸せを受け取る練習から（「ありがとう」と素直に言う）',
+                    '「私には早い」→「私だからこそ今」にシフト',
+                    '遠慮は美徳だけど、受け取らないのは宇宙への失礼と考えてみて',
+                ],
+                color: 'text-rose-600',
+                bg: 'bg-rose-50',
+                border: 'border-rose-200',
+            },
+            F: {
+                title: '先読み天才アンテナ型',
+                subtitle: 'リスク察知能力とアンテナの鋭さ！',
+                description: '不安や心配は、実は「先読み能力」の裏返し。その鋭いアンテナ、ちゃんと才能です。ネガティブじゃなくて、敏感なだけ。',
+                advice: [
+                    '「悪いこと」を予測するアンテナを「良いこと」にも向けてみる',
+                    '「失敗したら」→「成功したら」の未来も同じくらいリアルに想像する',
+                    'その分析力で「どうすればうまくいくか」を考えよう',
+                ],
+                color: 'text-blue-600',
+                bg: 'bg-blue-50',
+                border: 'border-blue-200',
+            },
+            G: {
+                title: '行動力爆発スタートダッシュ型',
+                subtitle: '即行動できる推進力！',
+                description: '多くの人が「やりたいけど...」と悩んでる間に、あなたはもう動いてる。このスピード感、めちゃくちゃ貴重です。',
+                advice: [
+                    '行動力はそのままでOK、ただし「一呼吸」を入れてみる',
+                    '動く前に「これは本当に自分の願いに繋がってる？」と確認',
+                    '焦りじゃなく「ワクワク」で動いてるか、チェックしよう',
+                ],
+                color: 'text-amber-600',
+                bg: 'bg-amber-50',
+                border: 'border-amber-200',
+            },
+        };
+
+        function diagnosisApp() {
+            return {
+                step: 'intro',
+                activeTab: 0,
+                answers: {},
+                result: null,
+                questionsData: questionsData,
+                resultsData: resultsData,
+                copied: false,
+
+                initApp() {
+                    this.$nextTick(() => {
+                        if(typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    });
+                },
+
+                startTest() {
+                    this.step = 'test';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    this.$nextTick(() => {
+                        if(typeof lucide !== 'undefined') lucide.createIcons();
+                    });
+                },
+
+                toggleAnswer(id) {
+                    if (this.answers[id]) {
+                        delete this.answers[id];
+                        this.answers[id] = false;
+                    } else {
+                        this.answers[id] = true;
+                    }
+                },
+
+                nextSection() {
+                    if (this.activeTab < this.questionsData.length - 1) {
+                        this.activeTab++;
+                        window.scrollTo({ top: 100, behavior: 'smooth' });
+                        this.$nextTick(() => {
+                            if(typeof lucide !== 'undefined') lucide.createIcons();
+                        });
+                    } else {
+                        this.finishTest();
+                    }
+                },
+
+                prevSection() {
+                    this.activeTab--;
+                    window.scrollTo({ top: 100, behavior: 'smooth' });
+                    this.$nextTick(() => {
+                         if(typeof lucide !== 'undefined') lucide.createIcons();
+                    });
+                },
+
+                finishTest() {
+                    this.step = 'analyzing';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Logic calculation
+                    const scores = {};
+                    this.questionsData.forEach(qData => {
+                        let count = 0;
+                        qData.questions.forEach((_, idx) => {
+                            if (this.answers[`${qData.type}-${idx}`]) count++;
+                        });
+                        scores[qData.type] = count;
+                    });
+
+                    let maxScore = 0;
+                    Object.values(scores).forEach(score => {
+                        if (score > maxScore) maxScore = score;
+                    });
+
+                    const mainTypes = Object.keys(scores).filter(type => scores[type] === maxScore && maxScore > 0);
+                    const subTypes = Object.keys(scores).filter(type => scores[type] >= 3 && !mainTypes.includes(type));
+
+                    if (mainTypes.length === 0) mainTypes.push('A');
+
+                    this.result = { mainTypes, subTypes };
+
+                    setTimeout(() => {
+                        this.step = 'result';
+                        this.$nextTick(() => {
+                            if(typeof lucide !== 'undefined') lucide.createIcons();
+                        });
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 2500);
+                },
+
+                resetApp() {
+                    this.step = 'intro';
+                    this.answers = {};
+                    this.result = null;
+                    this.activeTab = 0;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                },
+
+                copyResult(typeCode) {
+                    const data = this.resultsData[typeCode];
+                    const text = `私の現実創造の才能は...【${data.title}】でした！\n\n${data.subtitle}\n\n#現実創造才能診断`;
+                    navigator.clipboard.writeText(text).then(() => {
+                        this.copied = true;
+                        setTimeout(() => this.copied = false, 2000);
+                        this.$nextTick(() => {
+                            if(typeof lucide !== 'undefined') lucide.createIcons();
+                        });
+                    });
+                }
+            }
+        }
+    </script>
 </body>
 </html>
